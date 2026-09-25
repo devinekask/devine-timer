@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp
+  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:type="ContentApp">
+  <Id>B7125F62-4E4A-4B15-BFC1-2059CC16E7DD</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Simon Vanherweghe</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Slide Timer (dev)" />
+  <Description DefaultValue="A simple countdown timer you place on a slide. Set the time while editing, click it to start while presenting." />
+  <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png" />
+  <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-64.png" />
+  <SupportUrl DefaultValue="https://localhost:3000/timer.html" />
+  <Hosts>
+    <Host Name="Presentation" />
+  </Hosts>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://localhost:3000/timer.html" />
+    <RequestedWidth>300</RequestedWidth>
+    <RequestedHeight>150</RequestedHeight>
+  </DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+  <AllowSnapshot>true</AllowSnapshot>
+</OfficeApp>

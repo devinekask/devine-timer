@@ -1,0 +1,19 @@
+{
+  "name": "ppt-slide-timer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A simple countdown timer content add-in for PowerPoint.",
+  "scripts": {
+    "certs": "office-addin-dev-certs install",
+    "start": "http-server docs -S -C \"$HOME/.office-addin-dev-certs/localhost.crt\" -K \"$HOME/.office-addin-dev-certs/localhost.key\" -p 3000 -c-1",
+    "sideload": "sh scripts/sideload.sh manifest.dev.xml slide-timer-dev.xml",
+    "sideload:prod": "sh scripts/sideload.sh manifest.xml slide-timer.xml",
+    "validate": "office-addin-manifest validate manifest.dev.xml",
+    "icons": "node scripts/make-icons.js"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "office-addin-dev-certs": "^2.0.0",
+    "office-addin-manifest": "^2.0.0"
+  }
+}

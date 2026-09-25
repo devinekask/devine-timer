@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Slide Timer</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <link rel="stylesheet" href="timer.css" />
+</head>
+<body class="theme-light">
+  <main class="app">
+    <div id="display" class="display" role="button" tabindex="0" aria-live="off"
+            title="Click: start / pause · Double-click: reset · Space/S: start/pause · R: reset">
+      <span id="digits" class="digits">5:00</span>
+    </div>
+    <span id="measure" class="digits measure" aria-hidden="true"></span>
+
+    <form id="config" class="config" autocomplete="off">
+      <label class="field">
+        <input id="min" type="number" min="0" max="599" step="1" inputmode="numeric" value="5" aria-label="Minutes" />
+        <span>min</span>
+      </label>
+      <label class="field">
+        <input id="sec" type="number" min="0" max="59" step="1" inputmode="numeric" value="0" aria-label="Seconds" />
+        <span>sec</span>
+      </label>
+      <div class="presets" role="group" aria-label="Presets">
+        <button type="button" data-preset="300">5</button>
+        <button type="button" data-preset="600">10</button>
+        <button type="button" data-preset="900">15</button>
+        <button type="button" data-preset="1200">20</button>
+      </div>
+      <label class="field" title="Start counting down as soon as this slide appears in the slideshow">
+        <input id="auto" type="checkbox" />
+        <span>Auto-start</span>
+      </label>
+      <select id="theme" aria-label="Style">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </form>
+  </main>
+  <script src="timer.js"></script>
+</body>
+</html>

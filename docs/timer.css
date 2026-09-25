@@ -1,0 +1,127 @@
+:root {
+  --fg: #111;
+  --bg: #fff;
+  --done: #d7263d;
+  --ui-fg: #222;
+  --ui-bg: rgba(255, 255, 255, 0.92);
+  --ui-border: rgba(0, 0, 0, 0.18);
+  --accent: #c2410c;
+}
+
+/* Always an opaque background: PowerPoint draws a snapshot image of the add-in behind it,
+   and a transparent page lets a stale snapshot show through as "ghost" digits. */
+.theme-light { --fg: #111; --bg: #fff; }
+.theme-dark  { --fg: #fff; --bg: #111; }
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+
+/* ---- The timer face (font size is set in px by timer.js to fit this box) ---- */
+.display {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--fg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+.display:focus { outline: none; }
+.view-edit .display:focus-visible { outline: 2px dashed var(--accent); outline-offset: -4px; }
+
+.digits {
+  font-size: 48px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.measure {
+  position: absolute;
+  visibility: hidden;
+  left: 0;
+  top: 0;
+  font-size: 100px;
+}
+
+.paused .digits { opacity: 0.55; }
+.done .digits   { color: var(--done); animation: pulse 1s ease-in-out 3; }
+
+@keyframes pulse {
+  50% { opacity: 0.35; }
+}
+
+/* ---- Config row: only visible while editing the deck ---- */
+.config {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px;
+  font-size: 12px;
+  color: var(--ui-fg);
+  background: var(--ui-bg);
+  border-top: 1px solid var(--ui-border);
+}
+
+/* Hidden until PowerPoint confirms we're in edit view, so a slideshow never shows it. */
+body:not(.view-edit) .config { display: none; }
+
+.field { display: inline-flex; align-items: center; gap: 3px; }
+.field input {
+  width: 3.6em;
+  padding: 2px 4px;
+  font: inherit;
+  border: 1px solid var(--ui-border);
+  border-radius: 4px;
+}
+
+.field input[type="checkbox"] { width: auto; margin: 0; accent-color: var(--accent); }
+
+.presets { display: inline-flex; gap: 2px; }
+.presets button, .config select {
+  font: inherit;
+  padding: 2px 7px;
+  border: 1px solid var(--ui-border);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--ui-fg);
+  cursor: pointer;
+}
+.presets button:hover { border-color: var(--accent); color: var(--accent); }
+.presets button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* Too small for a config row? Hide it; the digits matter more. */
+@media (max-height: 70px) {
+  .config { display: none; }
+}
