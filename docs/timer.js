@@ -1,4 +1,4 @@
-/* Slide Timer – a PowerPoint content add-in.
+/* Devine timer – a PowerPoint content add-in.
  *
  * Edit view:  digits + a config row (duration, presets, style). Saved per add-in instance in the .pptx.
  * Slideshow:  digits only. Click / Space / S = start-pause, double-click / R = reset.

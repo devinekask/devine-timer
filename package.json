@@ -1,5 +1,5 @@
 {
-  "name": "ppt-slide-timer",
+  "name": "devine-timer",
   "version": "1.0.0",
   "private": true,
   "description": "A simple countdown timer content add-in for PowerPoint.",
@@ -9,7 +9,7 @@
     "sideload": "sh scripts/sideload.sh manifest.dev.xml slide-timer-dev.xml",
     "sideload:prod": "sh scripts/sideload.sh manifest.xml slide-timer.xml",
     "validate": "office-addin-manifest validate manifest.dev.xml",
-    "icons": "node scripts/make-icons.js"
+    "icons": "sh scripts/make-icons.sh"
   },
   "devDependencies": {
     "http-server": "^14.1.1",

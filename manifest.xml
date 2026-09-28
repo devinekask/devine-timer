@@ -7,7 +7,7 @@
   <Version>1.0.0.0</Version>
   <ProviderName>Simon Vanherweghe</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="Slide Timer" />
+  <DisplayName DefaultValue="Devine timer" />
   <Description DefaultValue="A simple countdown timer you place on a slide. Set the time while editing, click it to start while presenting." />
   <IconUrl DefaultValue="https://devinekask.github.io/devine-timer/assets/icon-32.png" />
   <HighResolutionIconUrl DefaultValue="https://devinekask.github.io/devine-timer/assets/icon-64.png" />
