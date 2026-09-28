@@ -31,26 +31,22 @@ If `sideload` fails with *Operation not permitted*, macOS is protecting PowerPoi
 
 Restart PowerPoint. **Slide Timer (dev)** then appears under **Insert → Add-ins → My Add-ins**, under the *Developer Add-ins* heading. The dev server has to be running whenever you use the dev version.
 
-To test in a plain browser, open `https://localhost:3000/timer.html?view=read&s=10`. `view=read` previews the slideshow look and `s` sets the duration in seconds. Add `&auto=1` to test auto-start.
+To test in a plain browser, open `https://localhost:3000/?view=read&s=10`. `view=read` previews the slideshow look and `s` sets the duration in seconds. Add `&auto=1` to test auto-start.
 
 ## Publishing (GitHub Pages)
 
-`manifest.xml` points to **https://simonvanherweghe.github.io/devine-timer/**.
+The add-in is published from [devinekask/devine-timer](https://github.com/devinekask/devine-timer) at **https://devinekask.github.io/devine-timer/** (GitHub Pages: branch `main`, folder `/docs`). `manifest.xml` points there.
 
-1. Create a **public** GitHub repo named `devine-timer` and push this folder to it:
-   ```bash
-   gh repo create devine-timer --public --source . --push
-   ```
-2. In the repo, go to **Settings → Pages → Deploy from a branch → `main` / `/docs`**, then wait a minute until `https://simonvanherweghe.github.io/devine-timer/timer.html` loads.
-3. Run `npm run sideload:prod` (or drag `manifest.xml` into the `wef` folder, see above) and restart PowerPoint. **Slide Timer** now works without a local server.
+1. Push to `main`; Pages redeploys within a minute or two.
+2. To install the published version, run `npm run sideload:prod` (or drag `manifest.xml` into the `wef` folder, see above) and restart PowerPoint. **Slide Timer** works without a local server.
 
-If you use a different repo name or account, update the 4 URLs in `manifest.xml` to match.
+If the repo or account changes, update the 4 URLs in `manifest.xml` to match.
 
 To share it with colleagues, give them `manifest.xml`. On Windows, they add it through a shared-folder catalog; alternatively, an admin can deploy it through the Microsoft 365 admin center.
 
 ## Files
 
-- `docs/timer.html`, `timer.css`, `timer.js`: the add-in itself (no build step)
+- `docs/index.html`, `timer.css`, `timer.js`: the add-in itself (no build step)
 - `manifest.dev.xml`: points to `https://localhost:3000`
 - `manifest.xml`: points to GitHub Pages
 - `scripts/make-icons.js`: regenerates the icons in `docs/assets/`

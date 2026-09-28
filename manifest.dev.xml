@@ -11,12 +11,12 @@
   <Description DefaultValue="A simple countdown timer you place on a slide. Set the time while editing, click it to start while presenting." />
   <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png" />
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-64.png" />
-  <SupportUrl DefaultValue="https://localhost:3000/timer.html" />
+  <SupportUrl DefaultValue="https://localhost:3000/" />
   <Hosts>
     <Host Name="Presentation" />
   </Hosts>
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://localhost:3000/timer.html" />
+    <SourceLocation DefaultValue="https://localhost:3000/index.html" />
     <RequestedWidth>300</RequestedWidth>
     <RequestedHeight>150</RequestedHeight>
   </DefaultSettings>
